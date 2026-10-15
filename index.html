@@ -1,52 +1,355 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul | Cloud & DevOps Portfolio</title>
 
-<title>Abdul | Cloud & DevOps Portfolio</title>
-<meta name="description" content="Explore Abdul's IT administration experience, AWS learning labs, Linux projects, and DevOps journey.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    html {
+      scroll-behavior: smooth;
+    }
 
-:root {
-    --bg: #070914;
-    --panel: #101426;
-    --cyan: #58e6ff;
-    --purple: #a78bfa;
-    --text: #f4f6ff;
-    --muted: #9ca7c5;
-    --border: rgba(157, 177, 255, .15);
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #f1f5f9;
+      line-height: 1.7;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: #111a2e;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #263550;
+    }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
+    .logo {
+      color: #38bdf8;
+      font-size: 23px;
+      font-weight: bold;
+    }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background:
-        radial-gradient(ellipse at 15% 10%, #163b5b55, transparent 40%),
-        radial-gradient(ellipse at 85% 35%, #54267b38, transparent 38%),
-        radial-gradient(ellipse at 50% 90%, #123d5940, transparent 42%);
-}
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 20px;
+    }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 70px 8%;
+      background: radial-gradient(
+        circle at top,
+        #173b64 0%,
+        #0b1120 65%
+      );
+    }
+
+    .tag {
+      color: #38bdf8;
+      border: 1px solid #2563eb;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #b6c4d8;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0284c7;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 6px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #38bdf8;
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 40px;
+    }
+
+    .about {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      color: #cbd5e1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(220px, 1fr)
+      );
+      gap: 22px;
+    }
+
+    .card {
+      background: #111a2e;
+      border: 1px solid #263550;
+      padding: 28px;
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #b6c4d8;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skill {
+      background: #172740;
+      border: 1px solid #294768;
+      color: #bae6fd;
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #101a2c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #94a3b8;
+      border-top: 1px solid #263550;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Abdul.dev</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="tag">IT Operations | Cloud | DevOps</div>
+
+    <h1>Hello, I'm <span>Abdul Razak</span></h1>
+
+    <p>
+      IT professional with 4+ years of experience in IT operations
+      and system administration, currently building practical skills
+      in AWS Cloud and DevOps technologies.
+    </p>
+
+    <div>
+      <a href="#projects" class="btn">Explore My Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">My professional journey</p>
+
+    <div class="about">
+      I have experience in IT support, troubleshooting, Linux
+      administration, system monitoring, and day-to-day IT operations.
+      I am expanding my technical knowledge through practical training
+      in AWS and DevOps, with a focus on cloud infrastructure,
+      automation, and reliable deployments.
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-subtitle">Experience and practical learning</p>
+
+    <div class="skills">
+      <span class="skill">Linux</span>
+      <span class="skill">System Administration</span>
+      <span class="skill">IT Troubleshooting</span>
+      <span class="skill">AWS EC2</span>
+      <span class="skill">Amazon S3</span>
+      <span class="skill">AWS IAM</span>
+      <span class="skill">VPC & Security Groups</span>
+      <span class="skill">Apache Web Server</span>
+      <span class="skill">Git & GitHub</span>
+      <span class="skill">DevOps - Learning</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <p class="section-subtitle">
+      Cloud and infrastructure projects
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="icon">☁️</div>
+        <h3>AWS EC2 Hosting</h3>
+        <p>
+          Learning to launch cloud instances, configure networking,
+          and host websites on AWS EC2.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Apache Web Server</h3>
+        <p>
+          Building and deploying a responsive website using
+          HTML, CSS, Linux, and Apache.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📦</div>
+        <h3>GitHub Projects</h3>
+        <p>
+          Practicing source code management, repository creation,
+          and version control with GitHub.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🐧</div>
+        <h3>Linux Administration</h3>
+        <p>
+          Practicing Linux commands, service management,
+          permissions, monitoring, and troubleshooting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-subtitle">
+      Interested in cloud, Linux, and DevOps opportunities?
+    </p>
+
+    <a
+      href="https://github.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn"
+    >
+      GitHub Profile
+    </a>
+
+    <a
+      href="https://www.linkedin.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-outline"
+    >
+      LinkedIn Profile
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2026 Abdul Razak | Cloud & DevOps Portfolio</p>
+    <p>Built with HTML and CSS</p>
+  </footer>
+
+</body>
+</html>
