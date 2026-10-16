@@ -2,354 +2,635 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdul | Cloud & DevOps Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050b16">
+<meta name="description" content="Mohammad Abdul Razak — IT Operations, Linux, AWS Cloud and DevOps Portfolio">
+<title>Abdul Razak | Cloud & DevOps Portfolio</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-    html {
-      scroll-behavior: smooth;
-    }
+:root {
+  --bg: #050b16;
+  --panel: #0b1628;
+  --line: rgba(91, 175, 255, .19);
+  --blue: #28b8ff;
+  --cyan: #72e3ff;
+  --muted: #91a5bd;
+  --white: #edf7ff;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b1120;
-      color: #f1f5f9;
-      line-height: 1.7;
-    }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 8%;
-      background: #111a2e;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid #263550;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 80% 5%, #102951 0%, transparent 35%),
+    radial-gradient(ellipse at 0% 45%, #0a1a32 0%, transparent 32%),
+    var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-    .logo {
-      color: #38bdf8;
-      font-size: 23px;
-      font-weight: bold;
-    }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
 
-    nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 20px;
-    }
+.container { width: min(1120px, 90%); margin: auto; }
 
-    nav a:hover {
-      color: #38bdf8;
-    }
+header {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5, 11, 22, .87);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
 
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 70px 8%;
-      background: radial-gradient(
-        circle at top,
-        #173b64 0%,
-        #0b1120 65%
-      );
-    }
+.nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-    .tag {
-      color: #38bdf8;
-      border: 1px solid #2563eb;
-      padding: 6px 16px;
-      border-radius: 30px;
-      margin-bottom: 24px;
-    }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
 
-    h1 {
-      font-size: clamp(38px, 6vw, 66px);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
+.brand-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #167ab3;
+  border-radius: 14px;
+  color: var(--cyan);
+  background: #0c2541;
+  box-shadow: 0 0 24px #168bff24;
+  font-size: 22px;
+}
 
-    h1 span {
-      color: #38bdf8;
-    }
+.brand small {
+  display: block;
+  color: var(--muted);
+  font: 11px 'Inter', sans-serif;
+}
 
-    .hero p {
-      max-width: 650px;
-      color: #b6c4d8;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+.nav-links { display: flex; align-items: center; gap: 27px; }
+.nav-links a { color: #b6c6d9; font-size: 13px; transition: .25s; }
+.nav-links a:hover { color: var(--cyan); }
 
-    .btn {
-      display: inline-block;
-      background: #0284c7;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 6px;
-      transition: 0.3s;
-    }
+.outline-btn, .primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 18px;
+  border-radius: 9px;
+  border: 1px solid #168bd0;
+  font-weight: 600;
+  font-size: 13px;
+  transition: .3s;
+  cursor: pointer;
+}
 
-    .btn:hover {
-      background: #0ea5e9;
-      transform: translateY(-3px);
-    }
+.outline-btn { background: #0b1b30; }
+.primary-btn {
+  color: #03111f;
+  background: linear-gradient(120deg, #39baff, #79e8ff);
+  border-color: transparent;
+  box-shadow: 0 5px 30px #169eff20;
+}
 
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #38bdf8;
-    }
+.outline-btn:hover, .primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #28b8ff35;
+}
 
-    section {
-      padding: 75px 8%;
-    }
+.hero {
+  min-height: 610px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 40px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
 
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #1c5681;
+  background: #0a2038;
+  padding: 7px 12px;
+  border-radius: 30px;
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-    .section-subtitle {
-      text-align: center;
-      color: #94a3b8;
-      margin-bottom: 40px;
-    }
+.pulse {
+  height: 7px; width: 7px;
+  border-radius: 50%;
+  background: #45e6a1;
+  box-shadow: 0 0 12px #45e6a1;
+}
 
-    .about {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      color: #cbd5e1;
-    }
+.hero h1 {
+  margin: 25px 0 15px;
+  font: 700 clamp(39px, 5.4vw, 67px)/1.1 'Space Grotesk', sans-serif;
+  letter-spacing: -2.5px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fit, minmax(220px, 1fr)
-      );
-      gap: 22px;
-    }
+.gradient {
+  background: linear-gradient(100deg, #37baff, #a1efff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-    .card {
-      background: #111a2e;
-      border: 1px solid #263550;
-      padding: 28px;
-      border-radius: 14px;
-      transition: 0.3s;
-    }
+.hero h2 {
+  font-size: 16px;
+  color: #d5e5f7;
+  font-weight: 500;
+  margin-bottom: 17px;
+}
 
-    .card:hover {
-      border-color: #38bdf8;
-      transform: translateY(-5px);
-    }
+.hero p { color: var(--muted); max-width: 530px; font-size: 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
 
-    .card .icon {
-      font-size: 35px;
-      margin-bottom: 12px;
-    }
+.socials { display: flex; gap: 18px; margin-top: 26px; }
+.socials a { color: #8ca8c5; font-size: 13px; }
+.socials a:hover { color: var(--cyan); }
 
-    .card h3 {
-      color: #38bdf8;
-      margin-bottom: 10px;
-    }
+.visual {
+  position: relative;
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
 
-    .card p {
-      color: #b6c4d8;
-    }
+.orbit {
+  width: 285px;
+  height: 285px;
+  border: 1px solid #168bd044;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 80px #008dff0c, inset 0 0 60px #008dff0c;
+}
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
+.orbit::before, .orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px dashed #32baff38;
+  border-radius: 50%;
+  inset: 23px;
+  animation: spin 28s linear infinite;
+}
 
-    .skill {
-      background: #172740;
-      border: 1px solid #294768;
-      color: #bae6fd;
-      padding: 10px 18px;
-      border-radius: 8px;
-    }
+.orbit::after {
+  inset: -23px;
+  border-style: solid;
+  border-color: #37baff14;
+  animation-direction: reverse;
+}
 
-    .contact {
-      text-align: center;
-      background: #101a2c;
-    }
+.core {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, #153d62, #071323 70%);
+  border: 1px solid #39baff9c;
+  box-shadow: 0 0 35px #138fff30, inset 0 0 35px #168bff16;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #94a3b8;
-      border-top: 1px solid #263550;
-    }
+.core-icon { font-size: 57px; filter: drop-shadow(0 0 15px #32baff70); }
+.core strong { display: block; font: 700 16px 'Space Grotesk', sans-serif; }
+.core small { color: var(--cyan); font-size: 10px; }
 
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 12px;
-      }
+.float-card {
+  position: absolute;
+  background: #0b1a2deF;
+  border: 1px solid #2879a6;
+  border-radius: 12px;
+  padding: 11px 14px;
+  box-shadow: 0 10px 35px #0005;
+  animation: float 4s ease-in-out infinite;
+}
 
-      nav a {
-        margin: 0 7px;
-        font-size: 14px;
-      }
+.float-card strong { display: block; font-size: 12px; }
+.float-card small { display: block; color: var(--muted); font-size: 10px; }
+.float-card .symbol { color: var(--cyan); font-size: 20px; }
+.fc1 { top: 25px; left: 0; }
+.fc2 { top: 70px; right: 0; animation-delay: -1s; }
+.fc3 { bottom: 30px; left: 10px; animation-delay: -2s; }
+.fc4 { bottom: 4px; right: 4px; animation-delay: -3s; }
 
-      section {
-        padding: 55px 6%;
-      }
-    }
-  </style>
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+.section { padding: 76px 0; border-top: 1px solid var(--line); }
+
+.section-head { margin-bottom: 33px; }
+.kicker { color: var(--blue); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+.section h2 { font: 700 32px 'Space Grotesk', sans-serif; margin-top: 6px; }
+.section-head p { color: var(--muted); font-size: 13px; margin-top: 5px; }
+
+.about-grid { display: grid; grid-template-columns: 1.4fr .8fr; gap: 25px; }
+
+.panel {
+  background: linear-gradient(145deg, #0c1a2d, #081322);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 27px;
+}
+
+.panel p { color: var(--muted); font-size: 13px; margin-top: 11px; }
+
+.facts { display: grid; gap: 15px; }
+.fact { display: flex; gap: 13px; align-items: flex-start; }
+.fact-icon { color: var(--cyan); font-size: 18px; }
+.fact strong { display: block; font-size: 12px; }
+.fact small { display: block; color: var(--muted); font-size: 11px; }
+
+.skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 17px;
+  background: #0a1729;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: .3s;
+}
+.skill:hover { border-color: #28b8ff88; transform: translateY(-4px); background: #0d2038; }
+.skill-icon { font-size: 23px; }
+.skill strong { display: block; font-size: 12px; }
+.skill small { display: block; color: var(--muted); font-size: 10px; }
+
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+.project {
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(140deg, #0d1c31, #07111f);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  transition: .3s;
+}
+.project:hover { transform: translateY(-5px); border-color: #28b8ff88; }
+.project::after {
+  content: "";
+  position: absolute;
+  width: 140px; height: 140px;
+  right: -65px; top: -65px;
+  border-radius: 50%;
+  background: #159fff13;
+  filter: blur(8px);
+}
+.project-top { display: flex; align-items: center; justify-content: space-between; }
+.project-symbol { font-size: 28px; }
+.project-label {
+  font-size: 10px; color: var(--cyan);
+  border: 1px solid #24608a; padding: 4px 9px; border-radius: 20px;
+}
+.project h3 { font-size: 16px; margin-top: 16px; }
+.project p { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+.tags span { background: #122944; padding: 4px 8px; border-radius: 5px; font-size: 10px; color: #b9dcf8; }
+
+.journey { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.journey-card { padding: 25px; border-left: 2px solid var(--blue); }
+.journey-card h3 { font-size: 15px; }
+.journey-card p { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.journey-card .status { color: #68dfb0; font-size: 10px; margin-top: 12px; }
+
+.contact-box {
+  text-align: center;
+  padding: 48px 25px;
+  border: 1px solid #1c5b88;
+  border-radius: 18px;
+  background: radial-gradient(ellipse at top, #123454, #091423 70%);
+}
+.contact-box h2 { font: 700 31px 'Space Grotesk', sans-serif; }
+.contact-box p { color: var(--muted); font-size: 13px; margin: 12px 0 23px; }
+.contact-details { color: #d6eaff; font-size: 13px; margin-top: 22px; overflow-wrap: anywhere; }
+
+footer { padding: 25px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s, transform .7s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 850px) {
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 11px; }
+  .nav .outline-btn { display: none; }
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 65px; }
+  .hero p { margin: auto; }
+  .actions, .socials { justify-content: center; }
+  .visual { min-height: 390px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .skill-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  header { height: auto; }
+  .nav { padding: 12px 0; flex-wrap: wrap; justify-content: center; }
+  .brand { margin-right: auto; }
+  .nav-links { width: 100%; justify-content: space-between; gap: 7px; }
+  .nav-links a { font-size: 11px; }
+  .hero h1 { letter-spacing: -1.5px; }
+  .hero h2 { font-size: 14px; }
+  .visual { transform: scale(.85); margin: -15px 0; }
+  .project-grid, .journey { grid-template-columns: 1fr; }
+  .skill { padding: 12px 9px; }
+  .skill strong { font-size: 11px; }
+  .section { padding: 55px 0; }
+  .section h2 { font-size: 27px; }
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo">Abdul.dev</div>
-    <div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="brand-icon">⌘</span>
+      <span>ABDUL.RAZAK<small>Cloud & DevOps Portfolio</small></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    </nav>
 
-  <header class="hero">
-    <div class="tag">IT Operations | Cloud | DevOps</div>
+    <a class="outline-btn" href="#contact">Let's Connect ↗</a>
+  </div>
+</header>
 
-    <h1>Hello, I'm <span>Abdul Razak</span></h1>
-
-    <p>
-      IT professional with 4+ years of experience in IT operations
-      and system administration, currently building practical skills
-      in AWS Cloud and DevOps technologies.
-    </p>
-
+<main>
+  <section class="container hero" id="home">
     <div>
-      <a href="#projects" class="btn">Explore My Projects</a>
-      <a href="#contact" class="btn btn-outline">Contact Me</a>
-    </div>
-  </header>
+      <div class="eyebrow"><span class="pulse"></span> IT Operations · Cloud Journey</div>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-subtitle">My professional journey</p>
+      <h1>Mohammad<br><span class="gradient">Abdul Razak.</span></h1>
 
-    <div class="about">
-      I have experience in IT support, troubleshooting, Linux
-      administration, system monitoring, and day-to-day IT operations.
-      I am expanding my technical knowledge through practical training
-      in AWS and DevOps, with a focus on cloud infrastructure,
-      automation, and reliable deployments.
-    </div>
-  </section>
+      <h2>System Administration | Linux | AWS & DevOps</h2>
 
-  <section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <p class="section-subtitle">Experience and practical learning</p>
+      <p>
+        IT professional with 4+ years of experience in IT operations,
+        system administration and troubleshooting. Currently developing
+        practical AWS and DevOps skills to build reliable, scalable
+        cloud infrastructure.
+      </p>
 
-    <div class="skills">
-      <span class="skill">Linux</span>
-      <span class="skill">System Administration</span>
-      <span class="skill">IT Troubleshooting</span>
-      <span class="skill">AWS EC2</span>
-      <span class="skill">Amazon S3</span>
-      <span class="skill">AWS IAM</span>
-      <span class="skill">VPC & Security Groups</span>
-      <span class="skill">Apache Web Server</span>
-      <span class="skill">Git & GitHub</span>
-      <span class="skill">DevOps - Learning</span>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2 class="section-title">My Projects</h2>
-    <p class="section-subtitle">
-      Cloud and infrastructure projects
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <div class="icon">☁️</div>
-        <h3>AWS EC2 Hosting</h3>
-        <p>
-          Learning to launch cloud instances, configure networking,
-          and host websites on AWS EC2.
-        </p>
+      <div class="actions">
+        <a href="#projects" class="primary-btn">Explore My Work ↘</a>
+        <a href="#contact" class="outline-btn">Get In Touch ↗</a>
       </div>
 
-      <div class="card">
-        <div class="icon">🌐</div>
-        <h3>Apache Web Server</h3>
-        <p>
-          Building and deploying a responsive website using
-          HTML, CSS, Linux, and Apache.
-        </p>
+      <div class="socials">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">↗ GitHub</a>
+        <a href="https://www.linkedin.com/in/mohammed-abdul-razzak-65bb3a188/" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
+        <a href="mailto:mohammadabdulrazak@gmail.com">✉ Email</a>
+      </div>
+    </div>
+
+    <div class="visual" aria-label="Cloud and infrastructure illustration">
+      <div class="orbit">
+        <div class="core">
+          <div>
+            <div class="core-icon">☁</div>
+            <strong>Cloud Native</strong>
+            <small>BUILD · LEARN · GROW</small>
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="icon">📦</div>
-        <h3>GitHub Projects</h3>
-        <p>
-          Practicing source code management, repository creation,
-          and version control with GitHub.
-        </p>
+      <div class="float-card fc1">
+        <span class="symbol">🐧</span>
+        <strong>Linux</strong><small>Administration</small>
       </div>
-
-      <div class="card">
-        <div class="icon">🐧</div>
-        <h3>Linux Administration</h3>
-        <p>
-          Practicing Linux commands, service management,
-          permissions, monitoring, and troubleshooting.
-        </p>
+      <div class="float-card fc2">
+        <span class="symbol">☁</span>
+        <strong>AWS Cloud</strong><small>EC2 · S3 · IAM</small>
+      </div>
+      <div class="float-card fc3">
+        <span class="symbol">⌘</span>
+        <strong>Git & GitHub</strong><small>Version Control</small>
+      </div>
+      <div class="float-card fc4">
+        <span class="symbol">⚙</span>
+        <strong>DevOps</strong><small>Learning & Practice</small>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2 class="section-title">Let's Connect</h2>
-    <p class="section-subtitle">
-      Interested in cloud, Linux, and DevOps opportunities?
-    </p>
+  <section class="section" id="about">
+    <div class="container reveal">
+      <div class="section-head">
+        <span class="kicker">01 / About</span>
+        <h2>Turning IT experience into <span class="gradient">cloud skills.</span></h2>
+        <p>A little about my background and professional direction.</p>
+      </div>
 
-    <a
-      href="https://github.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn"
-    >
-      GitHub Profile
-    </a>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>My Story</h3>
+          <p>
+            I have experience supporting day-to-day IT operations,
+            resolving hardware and software issues, monitoring systems,
+            troubleshooting connectivity, and working with Linux
+            environments. I enjoy solving technical problems and
+            learning how infrastructure works.
+          </p>
+          <p>
+            My current focus is AWS Cloud and DevOps practical training.
+            I am building hands-on projects to strengthen my knowledge
+            of cloud services, deployments, automation, and monitoring.
+          </p>
+        </div>
 
-    <a
-      href="https://www.linkedin.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn btn-outline"
-    >
-      LinkedIn Profile
-    </a>
+        <div class="panel facts">
+          <div class="fact">
+            <span class="fact-icon">⌖</span>
+            <div><strong>Based in</strong><small>Hyderabad, India</small></div>
+          </div>
+          <div class="fact">
+            <span class="fact-icon">◷</span>
+            <div><strong>Professional experience</strong><small>4+ years in IT operations</small></div>
+          </div>
+          <div class="fact">
+            <span class="fact-icon">⌘</span>
+            <div><strong>Current focus</strong><small>AWS Cloud & DevOps practical learning</small></div>
+          </div>
+          <div class="fact">
+            <span class="fact-icon">↗</span>
+            <div><strong>Career goal</strong><small>Grow into a Cloud / DevOps role</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2026 Abdul Razak | Cloud & DevOps Portfolio</p>
-    <p>Built with HTML and CSS</p>
-  </footer>
+  <section class="section" id="skills">
+    <div class="container reveal">
+      <div class="section-head">
+        <span class="kicker">02 / Tech Stack</span>
+        <h2>Tools I use & <span class="gradient">am learning.</span></h2>
+        <p>Practical experience and developing technical skills.</p>
+      </div>
+
+      <div class="skill-grid">
+        <div class="skill"><span class="skill-icon">🐧</span><div><strong>Linux</strong><small>Commands & services</small></div></div>
+        <div class="skill"><span class="skill-icon">🖥️</span><div><strong>IT Operations</strong><small>Support & troubleshooting</small></div></div>
+        <div class="skill"><span class="skill-icon">☁️</span><div><strong>AWS EC2</strong><small>Cloud compute · Learning</small></div></div>
+        <div class="skill"><span class="skill-icon">🪣</span><div><strong>Amazon S3</strong><small>Object storage · Learning</small></div></div>
+        <div class="skill"><span class="skill-icon">🔐</span><div><strong>AWS IAM</strong><small>Identity & permissions</small></div></div>
+        <div class="skill"><span class="skill-icon">🌐</span><div><strong>VPC & Networking</strong><small>Cloud networking · Learning</small></div></div>
+        <div class="skill"><span class="skill-icon">🪶</span><div><strong>Apache</strong><small>Web hosting practice</small></div></div>
+        <div class="skill"><span class="skill-icon">🔀</span><div><strong>Git & GitHub</strong><small>Repositories & code</small></div></div>
+        <div class="skill"><span class="skill-icon">🐳</span><div><strong>Docker</strong><small>Future learning goal</small></div></div>
+        <div class="skill"><span class="skill-icon">🏗️</span><div><strong>Terraform</strong><small>Future learning goal</small></div></div>
+        <div class="skill"><span class="skill-icon">📈</span><div><strong>Monitoring</strong><small>System checks & logs</small></div></div>
+        <div class="skill"><span class="skill-icon">🔄</span><div><strong>CI/CD</strong><small>Future learning goal</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container reveal">
+      <div class="section-head">
+        <span class="kicker">03 / Selected Work</span>
+        <h2>Learning by <span class="gradient">building.</span></h2>
+        <p>Practical projects to demonstrate my technical journey.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project">
+          <div class="project-top"><span class="project-symbol">☁️</span><span class="project-label">AWS PRACTICE</span></div>
+          <h3>Cloud Web Hosting on EC2</h3>
+          <p>Practicing cloud instance setup, security group configuration, Linux access, and website hosting with Apache.</p>
+          <div class="tags"><span>AWS EC2</span><span>Linux</span><span>Networking</span></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="project-symbol">🌐</span><span class="project-label">WEB DEPLOYMENT</span></div>
+          <h3>Responsive Portfolio Website</h3>
+          <p>Building a responsive portfolio with HTML and CSS, managing source code in GitHub, and publishing with GitHub Pages.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>GitHub Pages</span></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="project-symbol">🐧</span><span class="project-label">LINUX LAB</span></div>
+          <h3>Linux Administration Practice</h3>
+          <p>Practicing Linux commands, file permissions, process checks, disk usage, service management, and troubleshooting.</p>
+          <div class="tags"><span>Linux</span><span>systemctl</span><span>Monitoring</span></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="project-symbol">🔐</span><span class="project-label">CLOUD SECURITY</span></div>
+          <h3>AWS IAM Fundamentals</h3>
+          <p>Learning users, groups, permission policies, roles, least-privilege access, and secure access management.</p>
+          <div class="tags"><span>IAM</span><span>Policies</span><span>Security</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reveal">
+      <div class="section-head">
+        <span class="kicker">04 / Growth</span>
+        <h2>My next <span class="gradient">milestones.</span></h2>
+        <p>A learning roadmap focused on practical cloud skills.</p>
+      </div>
+
+      <div class="journey">
+        <div class="panel journey-card">
+          <h3>Cloud foundations</h3>
+          <p>Strengthen Linux, EC2, S3, IAM, VPC, security groups, and cloud networking through hands-on labs.</p>
+          <div class="status">● CURRENT LEARNING FOCUS</div>
+        </div>
+        <div class="panel journey-card">
+          <h3>Automation & delivery</h3>
+          <p>Progress into Git workflows, Docker, infrastructure as code, CI/CD pipelines, and monitoring projects.</p>
+          <div class="status">↗ NEXT LEARNING MILESTONES</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container reveal">
+      <div class="contact-box">
+        <span class="kicker">05 / Contact</span>
+        <h2>Let's build something <span class="gradient">great.</span></h2>
+        <p>Open to connecting with IT, Linux, Cloud, and DevOps professionals.</p>
+        <a class="primary-btn" href="mailto:mohammadabdulrazak@gmail.com">✉ Contact Me</a>
+
+        <div class="contact-details">
+          Hyderabad, India ·
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/mohammed-abdul-razzak-65bb3a188/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Mohammad Abdul Razak</span>
+    <span>Designed with focus · Built with HTML & CSS</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach((element) => {
+  observer.observe(element);
+});
+</script>
 
 </body>
 </html>
